@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Beyond Liberty – Equine Sanctuary, Wellness, and Education</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Favicon and main CSS links would go here -->
+  <style>
+    :root {
+      --primary: #4794d8;
+      --bg-structural: #004a7c;
+      --heading: #08305b;
+      --white: #fff;
+      --gray: #f7f9fa;
+    }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: var(--white);
+      color: var(--heading);
+      margin: 0;
+      line-height: 1.6;
+      font-size: 1rem;
+      min-width: 320px;
+    }
+    header,
+    main,
+    footer {
+      width: 100%;
+      max-width: 100vw;
+    }
+    .container {
+      margin: 0 auto;
+      padding: 0 1rem;
+      max-width: 1200px;
+      width: 100%;
+    }
+    /* Hero Styles */
+    .hero {
+      background: linear-gradient(rgba(8,48,91,.5), rgba(8,48,91,.5)), url('hero-image.jpg') center/cover no-repeat;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 60vh;
+      text-align: center;
+      position: relative;
+    }
+    .hero-content {
+      z-index: 2;
+      max-width: 580px;
+      margin: 0 auto;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-top: 0;
+      color: var(--white);
+      letter-spacing: .025em;
+      font-weight: 700;
+    }
+    .hero p {
+      font-size: 1.175rem;
+      margin: 1rem 0 2rem 0;
+      color: var(--white);
+    }
+    .primary-btn {
+      background-color: var(--primary);
+      color: var(--white);
+      border: none;
+      font-weight: bold;
+      border-radius: 2rem;
+      padding: 1em 2em;
+      font-size: 1.125rem;
+      cursor: pointer;
+      transition: background .2s;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,.06);
+      outline: none;
+    }
+    .primary-btn:focus, .primary-btn:hover {
+      background-color: #367bb6;
+      outline: 2px solid #fff;
+    }
+    /* Structural bg sections */
+    .bg-structural {
+      background: var(--bg-structural);
+      color: var(--white);
+      padding-top: 2.25rem;
+      padding-bottom: 2.25rem;
+    }
+    /* Section headings */
+    section > h2, .section-title {
+      font-size: 2rem;
+      color: var(--heading);
+      margin-bottom: .5em;
+      margin-top: 0;
+    }
+    .bg-structural .section-title {
+      color: var(--white);
+    }
+    /* What We Do Grid */
+    .what-we-do-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .feature-card {
+      background: var(--gray);
+      color: var(--heading);
+      border-radius: 1.2rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      text-align: center;
+      padding: 2rem 1rem;
+      min-height: 200px;
+      transition: box-shadow .2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .bg-structural .feature-card {
+      background: rgba(7, 71, 120, 0.06);
+      color: var(--white);
+    }
+    .feature-card img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      margin-bottom: 1em;
+    }
+    /* Program Cards */
+    .programs-slider {
+      display: flex;
+      gap: 1.5rem;
+      overflow-x: auto;
+      margin-bottom: 1.5rem;
+    }
+    .program-card {
+      flex: 0 0 300px;
+      background: var(--gray);
+      border-radius: 1em;
+      padding: 1.5em 1.2em;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+    .program-card h3 {
+      font-size: 1.25rem;
+      color: var(--primary);
+      margin-bottom: .5em;
+    }
+    /* Meet the Horses */
+    .horse-cards {
+      display: flex;
+      gap: 1.5em;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+    .horse-card {
+      flex: 0 0 220px;
+      background: var(--gray);
+      border-radius: .9em;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      text-align: center;
+      transition: box-shadow .2s;
+      margin-bottom: 1em;
+    }
+    .horse-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+    .horse-card h3 {
+      margin: .5em 0 0 0;
+      color: var(--primary);
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+    .horse-card p {
+      font-size: 0.97rem;
+      padding: 0 1em 1em 1em;
+      color: #333;
+      margin: 0;
+    }
+    /* Get Involved */
+    .get-involved-cards {
+      display: flex;
+      gap: 1.5em;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+    .get-involved-card {
+      flex: 0 0 210px;
+      background: var(--gray);
+      border-radius: .9em;
+      text-align: center;
+      padding: 1.2em .8em 1.2em .8em;
+      margin-bottom: 1em;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+    .get-involved-card h3 {
+      color: var(--primary);
+      font-weight: 900;
+      font-size: 1.06rem;
+      margin: 1em 0 .6em 0;
+    }
+    /* Events */
+    .events-list {
+      display: flex;
+      flex-direction: column;
+      gap: .75em;
+      margin-bottom: 1.5rem;
+    }
+    .event-card {
+      background: var(--gray);
+      border-radius: .6em;
+      padding: 1.2em;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 1px 6px rgba(0,0,0,.05);
+    }
+    .event-card time {
+      font-weight: bold;
+      color: var(--primary);
+    }
+    /* Insights/Stories */
+    .insights-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 1.2em;
+      margin-bottom: 1.3rem;
+    }
+    .insight-card {
+      background: var(--gray);
+      border-radius: .6em;
+      padding: 1.1em;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow .2s;
+    }
+    .insight-card img {
+      width: 100%;
+      height: 100px;
+      object-fit: cover;
+      border-radius: .4em;
+    }
+    .insight-card h3 {
+      font-size: 1.06rem;
+      font-weight: bold;
+      color: var(--primary);
+      margin: .6em 0 .4em 0;
+    }
+    .insight-card p {
+      font-size: .97rem;
+      color: #222;
+      margin: 0 0 .4em 0;
+    }
+    /* Team Section */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 1.3em;
+      margin-bottom: 1.3em;
+    }
+    .team-member {
+      background: var(--gray);
+      border-radius: .9em;
+      text-align: center;
+      padding: 1.1em .4em 1em .4em;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .team-member img {
+      border-radius: 50%;
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      margin-bottom: .5em;
+    }
+    .team-member h4 {
+      margin: .3em 0 .2em 0;
+      font-size: 1rem;
+      color: var(--primary);
+      font-weight: 600;
+    }
+    .team-member p {
+      font-size: 0.93rem;
+      color: #2d2d2d;
+      margin: 0;
+    }
+    /* FAQ */
+    .faq-list {
+      max-width: 700px;
+      margin: 0 auto 1.5em auto;
+    }
+    details {
+      margin-bottom: 1em;
+      background: var(--gray);
+      padding: 1em;
+      border-radius: .6em;
+      font-size: 1rem;
+    }
+    summary {
+      font-weight: bold;
+      color: var(--primary);
+      cursor: pointer;
+      outline: none;
+    }
+    /* Email Sign Up */
+    .email-signup {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: var(--gray);
+      padding: 2em 1em;
+      border-radius: 1.1em;
+      max-width: 370px;
+      margin: 2em auto 2em auto;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+    }
+    .email-signup label {
+      font-weight: 700;
+    }
+    .email-signup input[type=email] {
+      width: 80%;
+      max-width: 260px;
+      padding: .7em;
+      font-size: 1.03rem;
+      border-radius: 2em;
+      border: 1px solid #b8b8b8;
+      margin-top: .5em;
+      margin-bottom: .7em;
+      outline: none;
+    }
+    .email-signup input[type=email]:focus {
+      border: 2px solid var(--primary);
+    }
+    .email-signup .primary-btn {
+      width: 80%;
+      max-width: 240px;
+    }
+    /* Partners */
+    .partners-logos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5em;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 1.3em;
+    }
+    .partners-logos img {
+      height: 45px;
+      width: auto;
+      object-fit: contain;
+      background: #fff;
+      border-radius: .5em;
+      box-shadow: 0 0 3px rgba(60,60,60,0.03);
+      padding: .4em;
+    }
+    /* Final CTA */
+    .final-cta {
+      background: var(--primary);
+      color: var(--white);
+      padding: 2em 1em;
+      text-align: center;
+      border-radius: 1.5em;
+      margin: 2em 0 1.2em 0;
+    }
+    .final-cta .primary-btn {
+      background: var(--white);
+      color: var(--primary);
+      margin-top: .9em;
+      font-weight: bold;
+      border: 2px solid var(--white);
+      transition: background .2s, color .2s;
+    }
+    .final-cta .primary-btn:hover, .final-cta .primary-btn:focus {
+      background: var(--bg-structural);
+      color: var(--white);
+    }
+    /* Footer */
+    footer {
+      background: var(--bg-structural);
+      color: var(--white);
+      padding: 2em 1em 1.6em 1em;
+      font-size: .98rem;
+      text-align: center;
+    }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5em;
+      margin-bottom: .9em;
+    }
+    .footer-links a {
+      color: var(--white);
+      text-decoration: underline;
+      font-weight: 500;
+      transition: color .2s;
+    }
+    .footer-links a:hover, .footer-links a:focus {
+      color: var(--primary);
+    }
+    .footer-social {
+      margin-bottom: .7em;
+    }
+    .footer-social a {
+      margin: 0 .3em;
+      color: var(--white);
+      text-decoration: none;
+      font-size: 1.23em;
+      vertical-align: middle;
+    }
+    /* Responsive Design */
+    @media (max-width: 769px) {
+      .programs-slider,
+      .horse-cards,
+      .get-involved-cards,
+      .partners-logos {
+        flex-direction: column;
+        gap: 1em;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .final-cta {
+        border-radius: 0.7em;
+      }
+    }
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 .3em;
+      }
+      .final-cta,
+      .email-signup {
+        padding: 1.2em .4em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header and Navigation -->
+  <header>
+    <nav aria-label="Main navigation" class="container" style="display:flex; align-items:center; justify-content:space-between; padding:.8em 0;">
+      <a href="/" aria-label="Home - Beyond Liberty"><img src="logo.svg" alt="Beyond Liberty Logo" style="height:44px;"></a>
+      <ul style="list-style:none;display:flex;gap:1.2em; margin:0;padding:0;">
+        <li><a href="#what-we-do" style="color:var(--heading);text-decoration:none;font-weight:bold;">What We Do</a></li>
+        <li><a href="#programs" style="color:var(--heading);text-decoration:none;font-weight:bold;">Programs</a></li>
+        <li><a href="#horses" style="color:var(--heading);text-decoration:none;font-weight:bold;">Meet the Horses</a></li>
+        <li><a href="#get-involved" style="color:var(--heading);text-decoration:none;font-weight:bold;">Get Involved</a></li>
+        <li><a href="#events" style="color:var(--primary);text-decoration:underline;font-weight:bold;">Events</a></li>
+        <li><a href="#insights" style="color:var(--heading);text-decoration:none;font-weight:bold;">Stories</a></li>
+        <li><a href="#faq" style="color:var(--heading);text-decoration:none;font-weight:bold;">FAQ</a></li>
+      </ul>
+      <a href="#get-involved" class="primary-btn" style="margin-left:1.5em;">Donate</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <!-- Hero with Mission, Headline, Subheadline, CTA -->
+  <section class="hero" role="banner" aria-label="Beyond Liberty Mission Introduction">
+    <div class="hero-content">
+      <h1>Building Community, Enriching Lives</h1>
+      <p>
+        At BEYOND Liberty, we foster connection and wellness for horses in need—and for every human who cares. <br>
+        Experience accessible, equitable programs that unite nature, horses, and people through consent, presence, and partnership.
+      </p>
+      <a href="#get-involved" class="primary-btn" aria-label="Learn how to get involved at Beyond Liberty">Get Involved Now</a>
+    </div>
+  </section>
+
+  <!-- What We Do Section -->
+  <!-- Sanctuary, Wellness, Education highlights -->
+  <section class="container" style="padding:2.2em 0 2em 0;" id="what-we-do">
+    <h2 class="section-title">What We Do</h2>
+    <div class="what-we-do-grid" aria-label="Beyond Liberty Core Services">
+      <div class="feature-card">
+        <img src="icon-sanctuary.svg" alt="Sanctuary icon">
+        <h3>Sanctuary</h3>
+        <p>Providing a lifelong safe haven for horses in need, guided by consent and kindness. Our sanctuary nurtures healing, dignity, and natural connection.</p>
+      </div>
+      <div class="feature-card">
+        <img src="icon-wellness.svg" alt="Wellness icon">
+        <h3>Wellness</h3>
+        <p>Championing consent-based equine wellness. We honor each horse’s voice, using holistic, empathy-driven care that fosters trust and transformation.</p>
+      </div>
+      <div class="feature-card">
+        <img src="icon-education.svg" alt="Education icon">
+        <h3>Education</h3>
+        <p>Delivering outdoor education and experiential programs that connect humans and horses with nature, cultivating partnership, presence, and lifelong learning.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs Overview Section -->
+  <section class="bg-structural" id="programs">
+    <div class="container">
+      <h2 class="section-title">Programs</h2>
+      <div class="programs-slider" aria-label="Signature Programs Carousel">
+        <!-- Example program cards -->
+        <div class="program-card">
+          <h3>Healing Herd</h3>
+          <p>Consent-based sessions pairing rescued horses with community members for mutual growth and wellbeing.</p>
+        </div>
+        <div class="program-card">
+          <h3>Equine-Facilitated Learning</h3>
+          <p>Experiential education that deepens self-awareness and leadership through mindful partnership with horses and nature.</p>
+        </div>
+        <div class="program-card">
+          <h3>Open Sanctuary Days</h3>
+          <p>Accessible field days for all ages—explore, learn, and connect with our herd and the great outdoors.</p>
+        </div>
+      </div>
+      <a href="/programs" class="primary-btn" style="background:var(--white);color:var(--primary);margin-top:1.1em;" aria-label="See all Beyond Liberty programs">See All Programs</a>
+    </div>
+  </section>
+
+  <!-- Meet the Horses Section -->
+  <section class="container" style="padding:2em 0 2em 0;" id="horses">
+    <h2 class="section-title">Meet the Horses</h2>
+    <div class="horse-cards" aria-label="Featured Horses">
+      <!-- Horse cards; repeat as needed -->
+      <div class="horse-card">
+        <img src="opal.jpg" alt="Opal the horse at Beyond Liberty">
+        <h3>Opal</h3>
+        <p>Once overlooked, Opal has become an anchor in our Healing Herd, inspiring both people and horses with her gentle curiosity.</p>
+      </div>
+      <div class="horse-card">
+        <img src="raymond.jpg" alt="Raymond the horse at Beyond Liberty">
+        <h3>Raymond</h3>
+        <p>Wise and patient, Raymond found belonging at Beyond Liberty, now helping youth discover confidence and peace.</p>
+      </div>
+      <div class="horse-card">
+        <img src="willow.jpg" alt="Willow the horse at Beyond Liberty">
+        <h3>Willow</h3>
+        <p>With her playful spirit, Willow shows us daily the joy of presence and partnership in community.</p>
+      </div>
+    </div>
+    <a href="/meet-the-horses" class="primary-btn" style="background:var(--primary);color:var(--white);" aria-label="Meet all Beyond Liberty horses">Meet All Horses</a>
+  </section>
+
+  <!-- Get Involved Section -->
+  <section class="bg-structural" id="get-involved">
+    <div class="container">
+      <h2 class="section-title">Get Involved</h2>
+      <div class="get-involved-cards" aria-label="Ways to Participate">
+        <div class="get-involved-card">
+          <h3>Volunteer</h3>
+          <p>Share your time and heart—help with horse care, events, education, and sanctuary projects. All skill sets welcome!</p>
+          <a href="/get-involved#volunteer" class="primary-btn" aria-label="Sign up to Volunteer at Beyond Liberty">Volunteer</a>
+        </div>
+        <div class="get-involved-card">
+          <h3>Sponsor a Horse</h3>
+          <p>Provide ongoing support for a resident horse’s care and become part of their healing journey. Recognition and updates included.</p>
+          <a href="/get-involved#sponsor" class="primary-btn" aria-label="Sponsor a horse at Beyond Liberty">Sponsor Now</a>
+        </div>
+        <div class="get-involved-card">
+          <h3>Donate</h3>
+          <p>Every gift transforms lives—yours and theirs. Support our sanctuary, wellness, and education programs today.</p>
+          <a href="/donate" class="primary-btn" aria-label="Donate to Beyond Liberty">Donate</a>
+        </div>
+        <div class="get-involved-card">
+          <h3>Partner with Us</h3>
+          <p>Corporate and community supporters amplify our impact. Explore partnership and sponsorship opportunities with Beyond Liberty.</p>
+          <a href="/partners" class="primary-btn" aria-label="Partner with Beyond Liberty">Explore</a>
+        </div>
+      </div>
+      <a href="/get-involved" class="primary-btn" style="background:var(--white);color:var(--primary);" aria-label="See all ways to get involved">See All Ways to Get Involved</a>
+    </div>
+  </section>
+
+  <!-- Events Section -->
+  <section class="container" id="events" style="padding:2em 0 2em 0;">
+    <h2 class="section-title">Upcoming Events</h2>
+    <div class="events-list" aria-label="Upcoming Events List">
+      <div class="event-card">
+        <time datetime="2025-09-24">Sep 24</time>
+        <strong>Open Sanctuary Day</strong> – Connect with our herd, join wellness workshops, and explore community-led activities. All welcome.
+        <a href="/events/open-sanctuary-day" class="primary-btn" style="margin-top:.5em;" aria-label="Register for Open Sanctuary Day">Register</a>
+      </div>
+      <div class="event-card">
+        <time datetime="2025-10-10">Oct 10</time>
+        <strong>Consent-Based Equine Wellness Workshop</strong> – Learn about consent practices and equine care innovations in a hands-on program.
+        <a href="/events/wellness-workshop" class="primary-btn" style="margin-top:.5em;" aria-label="Learn more about Equine Wellness Workshop">Learn More</a>
+      </div>
+    </div>
+    <a href="/events" class="primary-btn" aria-label="See all events at Beyond Liberty">See All Events</a>
+  </section>
+
+  <!-- Insights / Stories Section -->
+  <section class="bg-structural" id="insights">
+    <div class="container">
+      <h2 class="section-title">Insights & Stories</h2>
+      <div class="insights-grid" aria-label="Recent Impact Stories and Articles">
+        <div class="insight-card">
+          <img src="story-1.jpg" alt="Photo of child with horse at Beyond Liberty">
+          <h3>From Fear to Friendship: Anna’s Journey</h3>
+          <p>Anna arrived anxious; with Opal’s guidance, she discovered confidence and new beginnings.</p>
+          <a href="/stories/anna-journey" class="primary-btn" style="background:var(--white);color:var(--primary);padding:.6em 1.1em;">Read More</a>
+        </div>
+        <div class="insight-card">
+          <img src="story-2.jpg" alt="Photo of volunteer at Beyond Liberty">
+          <h3>The Power of Consent-Based Wellness</h3>
+          <p>Our care philosophy: How giving horses a voice heals trauma and inspires lasting bonds.</p>
+          <a href="/stories/consent-wellness" class="primary-btn" style="background:var(--white);color:var(--primary);padding:.6em 1.1em;">Learn More</a>
+        </div>
+        <div class="insight-card">
+          <img src="story-3.jpg" alt="Photo of community event at Beyond Liberty">
+          <h3>Rewriting the Narrative of Rescue</h3>
+          <p>Explore what “rescue” means when sanctuary, education, and community celebration go hand in hand.</p>
+          <a href="/stories/rewrite-rescue" class="primary-btn" style="background:var(--white);color:var(--primary);padding:.6em 1.1em;">See Story</a>
+        </div>
+      </div>
+      <a href="/stories" class="primary-btn" style="background:var(--white);color:var(--primary);margin-bottom:.5em;">Read More Stories</a>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="container" id="team" style="padding:2em 0 2em 0;">
+    <h2 class="section-title">Our Team</h2>
+    <div class="team-grid" aria-label="Meet the Team Members">
+      <!-- Example team member cards -->
+      <div class="team-member">
+        <img src="team-alex.jpg" alt="Photo of Alex (Executive Director)">
+        <h4>Alex Morgan</h4>
+        <p>Executive Director – Championing consent-based partnerships and innovative outdoor education since Beyond Liberty’s founding.</p>
+      </div>
+      <div class="team-member">
+        <img src="team-samir.jpg" alt="Photo of Samir (Herd Care Lead)">
+        <h4>Samir Patel</h4>
+        <p>Herd Care Lead – Passionate about equine autonomy and holistic wellness, guiding the Healing Herd daily.</p>
+      </div>
+      <div class="team-member">
+        <img src="team-jen.jpg" alt="Photo of Jen (Education Program Manager)">
+        <h4>Jen Rivera</h4>
+        <p>Education Manager – Nurturing outdoor learning and partnership programs for all ages.</p>
+      </div>
+      <div class="team-member">
+        <img src="team-maya.jpg" alt="Photo of Maya (Volunteer Coordinator)">
+        <h4>Maya Chen</h4>
+        <p>Volunteer Coordinator – Connecting passionate people with purpose across our community and sanctuary.</p>
+      </div>
+    </div>
+    <a href="/team" class="primary-btn" style="background:var(--primary);color:var(--white);margin-top:.6em;" aria-label="Meet all Beyond Liberty team members">Meet All Team Members</a>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="bg-structural" id="faq" aria-label="Frequently Asked Questions">
+    <div class="container">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <div class="faq-list" role="list">
+        <details>
+          <summary>What is consent-based wellness for horses?</summary>
+          <div>
+            Consent-based wellness means horses actively participate in decisions about their care and activities. We use gentle, respectful practices that foster safety, trust, and healing for every horse.
+          </div>
+        </details>
+        <details>
+          <summary>How do horses come to Beyond Liberty?</summary>
+          <div>
+            Most are rescued from shelters, owner surrenders, or other urgent situations. Each arrives with a unique story and is welcomed into the Sanctuary with care and patience.
+          </div>
+        </details>
+        <details>
+          <summary>Who can join your education programs?</summary>
+          <div>
+            Everyone! Our programs are accessible to people of all ages, backgrounds, and experience levels—no previous horse or outdoor education needed.
+          </div>
+        </details>
+        <details>
+          <summary>How are donations used?</summary>
+          <div>
+            100% of donations fund essential horse care, wellness programs, education for the community, and sanctuary improvements, with transparency in all spending.
+          </div>
+        </details>
+        <details>
+          <summary>How can I volunteer or get involved?</summary>
+          <div>
+            Start by visiting our <a href="/get-involved" style="color:var(--primary);text-decoration:underline;">Get Involved</a> page, where you’ll find forms for volunteering, sponsoring, or joining events.
+          </div>
+        </details>
+      </div>
+      <a href="/faq" class="primary-btn" style="background:var(--white);color:var(--primary);">More FAQs</a>
+    </div>
+  </section>
+
+  <!-- Email Signup Section -->
+  <div class="email-signup" id="signup">
+    <form aria-label="Sign up for Beyond Liberty news" action="/subscribe" method="POST">
+      <label for="newsletter-email">Get stories, events, and wellness tips from Beyond Liberty:</label>
+      <input type="email" name="email" id="newsletter-email" placeholder="Your email address" required aria-required="true" aria-label="Your email address">
+      <button type="submit" class="primary-btn">Subscribe</button>
+      <p style="font-size:.91rem;color:#777;margin-top:.3em;">We respect your privacy. Unsubscribe anytime.</p>
+    </form>
+  </div>
+
+  <!-- Partners Section -->
+  <section class="container" id="partners" style="padding:1.8em 0 .7em 0;">
+    <h2 class="section-title">Our Partners</h2>
+    <div class="partners-logos" aria-label="Supporters and Partners">
+      <!-- Partner logos - update src/alt as needed -->
+      <a href="https://examplepartner1.org" target="_blank" rel="noopener" aria-label="Partner 1"><img src="partner1-logo.svg" alt="Example Partner 1 Logo"></a>
+      <a href="https://examplepartner2.org" target="_blank" rel="noopener" aria-label="Partner 2"><img src="partner2-logo.svg" alt="Example Partner 2 Logo"></a>
+      <a href="https://examplepartner3.org" target="_blank" rel="noopener" aria-label="Partner 3"><img src="partner3-logo.svg" alt="Example Partner 3 Logo"></a>
+      <a href="https://examplepartner4.org" target="_blank" rel="noopener" aria-label="Partner 4"><img src="partner4-logo.svg" alt="Example Partner 4 Logo"></a>
+    </div>
+    <p style="text-align:center;color:#7da3c3;font-size:.98rem;">We thank our community partners for their generous support.</p>
+  </section>
+
+  <!-- Final CTA Section -->
+  <section class="final-cta container" aria-label="Final Call to Action">
+    <h2 style="color:var(--white);">Ready to Join the Movement?</h2>
+    <p style="font-size:1.2rem;">
+      Build community and transform futures—with horses, nature, and each other.
+    </p>
+    <a href="/get-involved" class="primary-btn" aria-label="Become a part of Beyond Liberty">Start Your Journey</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <nav class="footer-links" aria-label="Footer Navigation">
+      <a href="/">Home</a>
+      <a href="/programs">Programs</a>
+      <a href="/get-involved">Get Involved</a>
+      <a href="/events">Events</a>
+      <a href="/stories">Stories</a>
+      <a href="/contact">Contact</a>
+      <a href="/privacy">Privacy</a>
+    </nav>
+    <div class="footer-social" aria-label="Social Media Links">
+      <a href="https://facebook.com/beyondliberty" target="_blank" aria-label="Facebook"><span aria-hidden="true">📘</span></a>
+      <a href="https://instagram.com/beyondliberty" target="_blank" aria-label="Instagram"><span aria-hidden="true">📸</span></a>
+      <a href="https://twitter.com/beyondliberty" target="_blank" aria-label="Twitter"><span aria-hidden="true">🐦</span></a>
+    </div>
+    <div>
+      <p>
+        &copy; 2025 Beyond Liberty. All rights reserved.<br>
+        123 Sanctuary Way, Horsehaven, TX 75432 | (555) 123-4567 | <a href="mailto:info@beyondliberty.org" style="color:var(--primary);">info@beyondliberty.org</a>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
